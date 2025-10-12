@@ -9,6 +9,11 @@ interface AuthContextType {
   loading: boolean;
   signUp: (email: string, password: string, fullName: string, phone: string) => Promise<{ error: any }>;
   signIn: (email: string, password: string) => Promise<{ error: any }>;
+  signInWithPhone: (phone: string, password: string) => Promise<{ error: any }>;
+  signUpWithPhone: (phone: string, password: string, fullName: string) => Promise<{ error: any }>;
+  sendOTP: (phone: string) => Promise<{ error: any }>;
+  verifyOTP: (phone: string, token: string) => Promise<{ error: any }>;
+  signInWithGoogle: () => Promise<{ error: any }>;
   signOut: () => Promise<void>;
   userProfile: any;
 }
@@ -110,6 +115,128 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return { error };
   };
 
+  const signInWithPhone = async (phone: string, password: string) => {
+    // Format phone with country code for India
+    const formattedPhone = phone.startsWith('+91') ? phone : `+91${phone}`;
+    
+    const { error } = await supabase.auth.signInWithPassword({
+      phone: formattedPhone,
+      password
+    });
+
+    if (error) {
+      toast({
+        title: "Login Error",
+        description: error.message,
+        variant: "destructive",
+      });
+    } else {
+      toast({
+        title: "Welcome back!",
+        description: "You have successfully logged in.",
+      });
+    }
+
+    return { error };
+  };
+
+  const signUpWithPhone = async (phone: string, password: string, fullName: string) => {
+    const formattedPhone = phone.startsWith('+91') ? phone : `+91${phone}`;
+    const redirectUrl = `${window.location.origin}/`;
+    
+    const { error } = await supabase.auth.signUp({
+      phone: formattedPhone,
+      password,
+      options: {
+        data: {
+          full_name: fullName,
+        }
+      }
+    });
+
+    if (error) {
+      toast({
+        title: "Signup Error",
+        description: error.message,
+        variant: "destructive",
+      });
+    } else {
+      toast({
+        title: "Success!",
+        description: "Account created successfully. You can now log in.",
+      });
+    }
+
+    return { error };
+  };
+
+  const sendOTP = async (phone: string) => {
+    const formattedPhone = phone.startsWith('+91') ? phone : `+91${phone}`;
+    
+    const { error } = await supabase.auth.signInWithOtp({
+      phone: formattedPhone,
+    });
+
+    if (error) {
+      toast({
+        title: "OTP Error",
+        description: error.message,
+        variant: "destructive",
+      });
+    } else {
+      toast({
+        title: "OTP Sent!",
+        description: "Please check your phone for the verification code.",
+      });
+    }
+
+    return { error };
+  };
+
+  const verifyOTP = async (phone: string, token: string) => {
+    const formattedPhone = phone.startsWith('+91') ? phone : `+91${phone}`;
+    
+    const { error } = await supabase.auth.verifyOtp({
+      phone: formattedPhone,
+      token,
+      type: 'sms'
+    });
+
+    if (error) {
+      toast({
+        title: "Verification Error",
+        description: error.message,
+        variant: "destructive",
+      });
+    } else {
+      toast({
+        title: "Success!",
+        description: "Phone verified successfully.",
+      });
+    }
+
+    return { error };
+  };
+
+  const signInWithGoogle = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: `${window.location.origin}/`
+      }
+    });
+
+    if (error) {
+      toast({
+        title: "Google Sign-In Error",
+        description: error.message,
+        variant: "destructive",
+      });
+    }
+
+    return { error };
+  };
+
   const signOut = async () => {
     const { error } = await supabase.auth.signOut();
     if (!error) {
@@ -126,6 +253,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     loading,
     signUp,
     signIn,
+    signInWithPhone,
+    signUpWithPhone,
+    sendOTP,
+    verifyOTP,
+    signInWithGoogle,
     signOut,
     userProfile
   };

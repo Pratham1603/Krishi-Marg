@@ -1,73 +1,105 @@
-# Welcome to your Lovable project
+<h1 align="center">🌾 KrishiMarg – Smart Agricultural Route & Advisory System</h1>
 
-## Project info
+<p align="center">
+  <b>Empowering Farmers with AI, ML & Smart Route Optimization</b><br>
+  Developed as an intelligent assistant to optimize delivery, logistics, and decision-making in the agriculture ecosystem.
+</p>
 
-**URL**: https://lovable.dev/projects/b5a7bc19-ee54-44d3-bfe0-7173034ccd83
+---
 
-## How can I edit this code?
+## 🌟 Overview
 
-There are several ways of editing your application.
+**KrishiMarg** combines the power of **AI, Machine Learning, and Geospatial Intelligence**  
+to create a smart ecosystem for **agriculture logistics**, **crop advisory**, and **route planning**.  
 
-**Use Lovable**
+It helps farmers, transporters, and distributors optimize:
+- **Farm-to-Market routes**
+- **Fertilizer and crop delivery paths**
+- **Resource allocation**
+- **Yield prediction and advisory**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b5a7bc19-ee54-44d3-bfe0-7173034ccd83) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚜 Problem Statement
 
-**Use your preferred IDE**
+> Farmers often face challenges in transporting goods efficiently due to unpredictable traffic, poor route planning, and weather dependencies.  
+> Additionally, access to localized crop insights and market price predictions is limited.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+**KrishiMarg** aims to solve this by:
+- 🧭 Providing **AI-based route optimization** for agricultural deliveries.  
+- 🌦️ Offering **weather-aware and traffic-aware routing**.  
+- 🌱 Giving **AI-driven crop and soil health recommendations**.  
+- 📊 Delivering **real-time dashboards and analytics** to users.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 💡 Key Features
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- 🗺️ **Smart Route Optimization** using Dijkstra / A* algorithms
+- 🤖 **AI-Powered Crop & Soil Prediction** (via ML models)
+- 📈 **Real-Time Data Visualization Dashboard**
+- ☁️ **FastAPI Backend + Streamlit UI**
+- 🌤️ **Weather-Integrated Advisory System**
+- 🧑‍🌾 **Farmer-Friendly UI with Simple Insights**
+- 📡 **Cloud Deployable with Scalable APIs**
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🧠 Tech Stack
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+| Category | Technologies Used |
+|-----------|------------------|
+| **Frontend** | Streamlit / React.js |
+| **Backend** | FastAPI / Flask |
+| **Machine Learning** | Scikit-learn, TensorFlow, XGBoost |
+| **Optimization** | NetworkX, Google OR-Tools |
+| **Database** | MongoDB / PostgreSQL |
+| **APIs Used** | OpenWeatherMap, Google Maps Distance Matrix |
+| **Version Control** | Git, GitHub |
+| **Deployment** | Render / Vercel / Railway |
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## ⚙️ System Architecture
 
-**Use GitHub Codespaces**
+> 📌 *Insert system workflow diagram below*  
+> *(Farmer → App → Route Model + Weather API → Optimized Path → Dashboard Feedback)*
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+<p align="center">
+  <img src="assets/system_architecture.png" alt="System Architecture" width="80%">
+</p>
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 🖼️ Project Showcase
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+| Dashboard | Route Optimization | AI Crop Prediction |
+|------------|--------------------|--------------------|
+| ![Dashboard](assets/dashboard.png) | ![Route Optimization](assets/route_optimization.png) | ![Crop Prediction](assets/crop_prediction.png) |
 
-## How can I deploy this project?
+> 📍 *Add your screenshots in the `assets/` folder and update the above image paths.*
 
-Simply open [Lovable](https://lovable.dev/projects/b5a7bc19-ee54-44d3-bfe0-7173034ccd83) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## 📊 Presentation (PPT)
 
-Yes, you can!
+🎯 **Project Pitch Deck:**  
+[KrishiMarg_Presentation.pptx](https://github.com/user-attachments/files/your-ppt-link-here)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Include sample slides/screenshots below 👇  
+<p align="center">
+  <img src="assets/presentation_slide.png" alt="Presentation Slide" width="70%">
+</p>
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+---
+
+> 🏆 Built collaboratively for **Agritech Innovation Hackathon 2025**
+
+---
+
+## 🧰 Installation & Setup
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/yourusername/KrishiMarg.git
+cd KrishiMarg
